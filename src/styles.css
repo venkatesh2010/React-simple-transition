@@ -43,3 +43,6 @@
   border-radius: 6px;
   cursor: pointer;
 }
+.freeze {
+  pointer-events: none;
+}
