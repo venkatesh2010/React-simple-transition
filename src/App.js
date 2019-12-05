@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Modal from "./components/Modal";
 import About from "./components/About";
+import Home from "./components/Home";
 export default function App() {
   return (
     <Router>
@@ -18,12 +19,12 @@ export default function App() {
                 About
               </Link>
             </li>
-            <li>
+            <li className="column is-narrow">
               <Link className="button is-info" to="/modal">
                 Modal
               </Link>
             </li>
-            <li>
+            <li className="column is-narrow">
               <Link className="button" to="/users">
                 Users
               </Link>
@@ -50,10 +51,6 @@ export default function App() {
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
 }
 
 function Users() {
