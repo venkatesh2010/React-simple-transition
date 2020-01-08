@@ -7,8 +7,8 @@ export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul className="columns">
+        <nav className="navbar">
+          <ul className=" navbar-item columns is-mobile">
             <li className="column is-narrow">
               <Link className="button is-primary" to="/">
                 Home
