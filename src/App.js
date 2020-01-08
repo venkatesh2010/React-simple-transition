@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Modal from "./components/Modal";
 import About from "./components/About";
 import Home from "./components/Home";
+import RippleWorkspace from "./components/RippleWorkspace";
 export default function App() {
   return (
     <Router>
@@ -25,6 +26,11 @@ export default function App() {
               </Link>
             </li>
             <li className="column is-narrow">
+              <Link className="button is-info" to="/ripple">
+                Ripple Workspace
+              </Link>
+            </li>
+            <li className="column is-narrow">
               <Link className="button" to="/users">
                 Users
               </Link>
@@ -43,6 +49,9 @@ export default function App() {
           </Route>
           <Route path="/modal">
             <Modal />
+          </Route>
+          <Route path="/ripple">
+            <RippleWorkspace />
           </Route>
           <Route path="/">
             <Home />

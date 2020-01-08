@@ -39,6 +39,7 @@ export default class RippleEle extends React.PureComponent {
     const a = Math.max(Y - top, height + top - Y);
     const b = Math.max(X - left, width + left - X);
     const rippleRadius = Math.sqrt(a * a + b * b);
+    //const rippleRadius = Math.max(height, width) * 2;
     this.setState({
       style: { ...this.state.style, borderRadius, height, width, display },
       innerStyle: {
