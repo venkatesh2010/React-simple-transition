@@ -1,10 +1,11 @@
 import React from "react";
 import RippleEle from "./RippleEle";
+import Ripple2 from "./RippleEle2";
 
 export default class RippleWorkspace extends React.Component {
   state = { showModal: false };
   toggleModal = () => {
-    console.log("click event fired->showModal->", this.state.showModal);
+    // console.log("click event fired->showModal->", this.state.showModal);
     this.setState({ showModal: !this.state.showModal });
   };
   Btn = React.forwardRef((props, ref) => (
@@ -32,18 +33,33 @@ export default class RippleWorkspace extends React.Component {
         </div>
 
         <div className="block">
-          <RippleEle
-            renderEle={React.forwardRef((props, ref) => (
-              <button
-                ref={ref}
-                {...props}
-                className="button is-info"
-                style={{ height: 200, width: 200, borderRadius: "50%" }}
-              >
-                inline-flex and circle
-              </button>
-            ))}
-          />
+          <div className="columns is-mobile">
+            <div className="column">
+              <RippleEle
+                renderEle={React.forwardRef((props, ref) => (
+                  <button
+                    ref={ref}
+                    {...props}
+                    className="button is-info"
+                    style={{ height: 200, width: 200, borderRadius: "50%" }}
+                  >
+                    inline-flex and circle
+                  </button>
+                ))}
+              />
+            </div>
+            <div className="column">
+              <Ripple2>
+                <button
+                  onClick={() => console.log("clickHandler")}
+                  className="button is-info"
+                  style={{ height: 200, width: 200, borderRadius: "50%" }}
+                >
+                  inline-flex and circle v2
+                </button>
+              </Ripple2>
+            </div>
+          </div>
         </div>
 
         <div className="block">

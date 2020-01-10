@@ -16,6 +16,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 }
 .content {
   background: white;
@@ -35,6 +36,20 @@ ul {
 .fade-leave-active {
   transition: transform 1s;
   transform: translate3d(-100%, 0, 0);
+}
+.tilt-enter {
+  transform: perspective(0) rotateY(-10deg);
+}
+.tilt-enter-active {
+  transition: transform 1s;
+  transform: rotateY(0deg);
+}
+.tilt-leave {
+  transform: rotateY(0deg);
+}
+.tilt-leave-active {
+  transition: transform 1s;
+  transform: perspective(1000px) rotateY(10deg);
 }
 .btn {
   height: 40px;
