@@ -1,9 +1,14 @@
 import React from "react";
 import Transition from "./Transition";
-
+import delay from "../helpers/delay";
 export class Dropdown extends React.PureComponent {
   state = { show: false };
   toggle = (...args) => {
+    if (this.timer) return;
+    this.timer = setTimeout(() => {
+      clearTimeout(this.timer);
+      this.timer = false;
+    }, 150);
     if (!this.state.show) this.handlePlacement();
     this.setState({ show: !this.state.show });
     const [e, onClick, ...rest] = args;
@@ -30,7 +35,7 @@ export class Dropdown extends React.PureComponent {
     const Content = this.props.children[1];
     const TriggerClone = React.cloneElement(Trigger, {
       ...Trigger.props,
-      onClick: e => this.toggle(e, Trigger.props.onClick),
+      onClick: delay(e => this.toggle(e, Trigger.props.onClick), 1000),
       ref: ele => (this.ele = ele)
     });
     //  console.log(this.props.children);
@@ -39,21 +44,29 @@ export class Dropdown extends React.PureComponent {
         {TriggerClone}
         <Transition
           name="dropdown"
-          time={1000}
+          time={150}
           styles={{
             enter: {
-              opacity: ".0"
+              opacity: ".0",
+              transform: "scale(0.2)",
+              transformOrigin: "left top"
             },
             enterActive: {
-              transition: "opacity 1s",
-              opacity: "1"
+              transition: "opacity 150ms, transform 150ms",
+              opacity: "1",
+              transform: "scale(1)",
+              transformOrigin: "left top"
             },
             leave: {
-              opacity: "1"
+              opacity: "1",
+              transform: "scale(1)",
+              transformOrigin: "left top"
             },
             leaveActive: {
-              transition: "opacity 1s",
-              opacity: "0"
+              transition: "opacity 150ms, transform 150ms",
+              opacity: "0",
+              transform: "scale(0.2)",
+              transformOrigin: "left top"
             }
           }}
         >
