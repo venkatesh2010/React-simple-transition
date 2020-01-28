@@ -22,6 +22,19 @@ export const DropdownWorkspace = props => {
           </div>
         </article>
       </Dropdown>
+      <Dropdown>
+        <button className="button">Trigger</button>
+        <div
+          style={{
+            boxShadow: "1px 1px 15px 2px #8d8d8d",
+            borderRadius: 6
+          }}
+        >
+          {[...Array(5)].map((a, i) => {
+            return <div style={{ padding: 10, width: 200 }}> item {i}</div>;
+          })}
+        </div>
+      </Dropdown>
       <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
         <Dropdown>
           <button className="button">Trigger</button>

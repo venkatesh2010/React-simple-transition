@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink as Link } from "react-router-dom";
-
+import Ripple from "./RippleEle2";
 const items = [
   {
     text: "Home",
@@ -11,15 +11,15 @@ const items = [
     link: "/about"
   },
   {
-    text: "Modal workspace",
+    text: "Modal playground",
     link: "/modal"
   },
   {
-    text: "Ripple Workspace",
+    text: "Ripple playground",
     link: "/ripple"
   },
   {
-    text: "Dropdown Workspace",
+    text: "Dropdown playground",
     link: "/dropdown"
   }
 ];
@@ -44,14 +44,16 @@ export const SideBar = props => {
       >
         {items.map(item => (
           <li key={item.link} className="">
-            <Link
-              exact
-              activeStyle={{ background: "#23d160", color: "white" }}
-              style={{ padding: 20, display: "block" }}
-              to={item.link}
-            >
-              {item.text}
-            </Link>
+            <Ripple bgColor="white">
+              <Link
+                exact
+                activeStyle={{ background: "#23d160", color: "white" }}
+                style={{ padding: 20, display: "block" }}
+                to={item.link}
+              >
+                {item.text}
+              </Link>
+            </Ripple>
           </li>
         ))}
       </ul>
